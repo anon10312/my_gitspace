@@ -7,6 +7,13 @@ Provides shared access to files, printers and serial ports
 
 Threats: - possibility to access as guest if enabled
 
+- microsoft -
+
+microsoft-ds : 445
+netbios-ssn [session service] -> smb on top : 139
+
+- linux -
+
 Samba
 
 - Server -
@@ -23,6 +30,8 @@ smbpasswd -a <username> # virtual user creation
 
 smbclient -L <server_ip> # prints all the shared folders
 smbclient \\\\<server_ip>\\<folder> # access to the folder
+
+! If a password is shown and you try to login is already exploitation
 
 get <remote_file> [<local_file>] # download file
 put <local_file> [<remote_fie>] # upload file
@@ -56,4 +65,7 @@ Anonymous login successful
 - TOOLS -
 
 smbmap -H <server_ip> -R -A '<partial_file_name>' # downloads all files that matches and search recoursivelly
+
+nmap -p 445 -script smb-vuln* <server_ip> # check for known vulnerabilities
+
 

