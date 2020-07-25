@@ -1,0 +1,88 @@
+-- SSH --
+22: default port
+<username>@<target_ip> # access
+password:	# password or private key (-i) are required
+putty or ssh # windows host
+ssh # linux host
+
+-- usefull commands --
+
+<cmd1> && <cmd2> # execute <cmd2> if <cmd1> has executed successfully
+<cmd1>; <cmd2> # execute <cmd2> in any case
+# in <cmd2> I can the output of <cmd1> using an intermediary file
+
+-- environment variables --
+
+$<ENVIRONMENT_VARIABLE> # use the value stored inside the <ENVIRONMENT_VARIABLE> with other commands
+$USER # current user
+$HOME # current user's home
+$PATH # contains all the binaries you're able to execute separated by :
+export <varname>=<value> # memorize an environment variable
+
+-- file permissions --
+ex. ls -la
+drwxr-xr-x 8 root   root   4096 Feb 22 21:16 ..
+d: directory -: file
+rwx: read write execute for file owner -> first root
+r-x: read write execute for group -> second root
+r-x: read write execute for all
+
+chmod <permissions> <file>
+# permissions as 3 digits (ownergroupall)
+0: ---
+1: --x
+2: -w-
+4: r--
+
+3: -wx (2+1)
+5: r-x (4+1)
+6: rw- (4+2)
+7: rwx (4+2+1)
+
+# rm can be performed only on files with writing permission
+
+chown <owner>[:<group>] <file> # change file owner (and group)
+
+rwsrwxrwx # file with suid (set owner user id). Can be execute by others as the file owner
+
+-- ln --
+ln <file1> <file2> # <file2> is an hard link of <file1> -> changes in <file2> are made also in <file1> (<file2> also contain <file1> data)
+ln -s <file1> <file2> # <file2> is a symbolic link of <file2> -> <file2> doesn't contain <file1> data but is only a reference. ls shows <file2> -> <file1> with full permissions but it has the same permissions as <file1>
+
+-- find # whe you pwn a user always check this--
+find <directory> # shows all files inside the directory recoursivelly (if I have access permission) -> find / # shows all the files
+find <directory> -user <user> # list every file owned by a specific user
+find <directory> -group <group> # list every file owned by a specific group
+find <directory> 2>/dev/null # remove permission denied messages
+
+-- sudo --
+sudo [-u <user>] <cmd> # execute command as root (<user>) [must know current user password]
+sudo -l # list current sudo priviledges
+
+-- add* (only root can do) --
+adduser <username> # add user <username>
+addgroup <groupname> # add group <groupname>
+usermod -a -G <groups_separated_by_commas> <user> # add user to groups
+id # shows basic information about a user
+
+-- script --
+#! /bin/bash -- shabang that specifies to the system which interpreter to use
+
+-- which --
+which <cmd> # shows where an executable is in any of the PATH directories
+
+-- filesystem --
+/usr # where all your sw is installed
+/var # miscellaneous directory
+
+-- processes --
+ps # shows all the user created processes
+ps -ef # shows all system processes
+kill <pid> # kill the process with pid <pid>
+top # shows top expansive running processes
+
+chown <user>[:<group>] <file> # change owner [and group] for the file
+
+# to perform rm on a file a user must have write permission on it
+
+# man -> /pattern : search pattern in man
