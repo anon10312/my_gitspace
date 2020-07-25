@@ -1,0 +1,5 @@
+Ctrl + r # search in history
+Ctrl + shift + t # open new tab
+Ctrl + shift + e # split vertically
+Ctrl + shift + o # split horizontally
+Alt + <arrow> # move between terminals

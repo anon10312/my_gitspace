@@ -66,6 +66,7 @@ find <directory> -user <user> # list every file owned by a specific user
 find <directory> -group <group> # list every file owned by a specific group
 find <directory> 2>/dev/null # remove permission denied messages
 find <directory> -perm /4000 # find files with sticky bit
+find <directory> -perm -222 -type d # search for writable directories
 
 updatedb # create/update db used by locate
 locate <partial/full_file_name> # find all the matching files

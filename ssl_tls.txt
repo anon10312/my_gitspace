@@ -1,0 +1,9 @@
+- SecureSocketLayer -
+
+Deprecated
+
+- TransportLayerSecurity -
+
+	- Negotiation of encrypting algorithm
+	- Symmetric keys exchange (with certificates [uni-bi lateral])
+	- Connection established

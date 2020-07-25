@@ -1,0 +1,43 @@
+-- Secure SHell --
+
+Uses public key cryptography
+
+Three Layers:
+	- Transport Layer Protocol:
+		- algorithms negotiation
+		- key exchanges
+		- server authentication
+		- connection encryption
+		- information compression
+		- packet integrity check
+	- User Authentication Protocol
+		- public key authentication
+		- password authentication
+	- Connection Layer Protocol
+
+OpenSSH : open
+
+- Server -
+
+/etc/ssh/ssh_config # system configuration file
+~/.ssh/config # user configuration file
+/var/log/auth.log # log files
+~/.ssh/authorized_keys # public authorized keys
+~/.ssh/id_rsa # default private key location
+
+service start ssh
+
+systemctl enable ssh
+systemctl start ssh
+
+- Client -
+
+ssh-keygen # generate public/private keys
+ssh-copy-id <username>@<server_ip> # upload pub key to server
+ssh [<username>@]<server_ip> [-i <priv_key_to_use>] # initialize connection
+
+- BRUTEFORCE -
+
+hydra -l <username> [or -L <username_list> -P /usr/share/wordlist/metasploit/unix_passwords.txt ssh://<server_ip>:22 -t 4 -V
+
+

@@ -1,0 +1,42 @@
+_File Transfer Protocol : 21_
+
+Two TCP connections:
+	- commands (21) [persistent]
+	- data (20 or casual) [non persistent - one for each file transmitted]
+
+Possible actions:
+	- file upload/download
+	- resume aborted file transmissions
+	- delete or rename file
+	- make new directory
+	- directory navigation
+
+Weakness:
+	- credential transmission not encrypted -> solution: FTPS with SSL/TLS
+	- possibility of anonymous access if enabled
+
+- SERVER -
+vsftpd (linux)
+
+/etc/vsftpd.conf # configuration file
+/etc/log/ftp # log files
+
+- CLIENT -
+
+ftp <server_ip> (linux) - put <local_file> [<remote_file>]
+			  get <remote_file> [<local_file>]
+
+-- EXAMPLE OF ANONYMOUS CONNECTION --
+
+root@kali:~/Desktop/hackthebox/lame# ftp 10.10.10.3
+Connected to 10.10.10.3.
+220 (vsFTPd 2.3.4)
+Name (10.10.10.3:root): anonymous	<-
+331 Please specify the password.
+Password:				<- any
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+
+
+
