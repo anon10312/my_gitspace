@@ -3,13 +3,15 @@ __USERS AND GROUPS__
 adduser <username> # add user <username>
 addgroup <groupname> # add group <groupname>
 usermod -a -G <groups_separated_by_commas> <user> # add user to groups
+
 id # shows basic information about a user
+passwd # change password
 
 __FILE PERMISSIONS__
 
 ex. ls -la
 	drwxr-xr-x 8 root   root   4096 Feb 22 21:16 ..
-d: directory -: file
+d/-: directory/file
 rwx: read write execute for file owner = first root
 r-x: read write execute for group = second root
 r-x: read write execute for all
@@ -32,6 +34,8 @@ __SUDO__
 
 sudo -l # list current sudo priviledges
 sudo [-u <user>] <cmd> # execute command as root (<user>) [ex. /bin/bash]
+
+su <username> # switch user
 
 __PROCESSES__
 
@@ -61,6 +65,10 @@ find <directory> # shows all files inside the directory recoursivelly (if I have
 find <directory> -user <user> # list every file owned by a specific user
 find <directory> -group <group> # list every file owned by a specific group
 find <directory> 2>/dev/null # remove permission denied messages
+find <directory> -perm /4000 # find files with sticky bit
+
+updatedb # create/update db used by locate
+locate <partial/full_file_name> # find all the matching files
 
 __SCRIPTS__
 
@@ -69,4 +77,29 @@ __SCRIPTS__
 __TIPS/TRICKS__
 
 man <cmd> -> /pattern : search pattern inside man
+history # check bash history
+uname -a # shows os and kernel version
+
+__FILESYSTEM__
+
+/tmp # tipically all permissions for all the users
+
+/etc/passwd # below :500 shows all the users
+/etc/shadow # stores all the password hashes
+/etc/sudoers # sudoers file
+
+__NETWORK__
+
+ifconfig # ipv4/ipv6 address, mac address, subnetmask, broascast address,...
+arp -a # shows ip addresses and mac addresses of the machines that talked to me
+netstat -ano # active connections
+route # routing table
+
+__SERVICES__
+
+service <service_name> start/stop # after reboot the service is stopped
+systemctl enable/disable <service_name> # service running also after reboot
+
+
+
 
