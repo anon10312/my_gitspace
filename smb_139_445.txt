@@ -21,15 +21,29 @@ Samba
 /etc/samba/smb.conf # samba configuration file
 /var/log/samba # samba logs
 
+apt install samba
+
+_(add a shared thing through smb.conf)_
+[<shared_thing_name>]
+	comment = <description>
+	path = <abs_path_to_thing>
+	browserable = <yes/no>
+	read only = <yes/no>
+	guest ok = <yes/no>
+	........ # other parameters
+
+-(users management)_
+smbpasswd -a <username> # virtual user creation
+pubedit -L -V # shows all users
+
 service smbd start
 service nmbs start # netbios name and browsing demon
-
-smbpasswd -a <username> # virtual user creation
 
 - Client -
 
 smbclient -L <server_ip> # prints all the shared folders
 smbclient \\\\<server_ip>\\<folder> # access to the folder
+smbclient \\\\<server_ip>\\<folder> -U <username> # access to the folder as user <username>
 
 ! If a password is shown and you try to login is already exploitation
 

@@ -16,10 +16,13 @@ Weakness:
 	- possibility of anonymous access if enabled
 
 - SERVER -
-vsftpd (linux)
+apt install vsftpd
+
+system vsftpd start
 
 /etc/vsftpd.conf # configuration file
 /etc/log/ftp # log files
+/srv/ftp/ # default anon_root (for the other users is their home)
 
 - CLIENT -
 

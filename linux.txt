@@ -98,7 +98,7 @@ route # routing table
 
 __SERVICES__
 
-service <service_name> start/stop # after reboot the service is stopped
+service <service_name> start/stop/status # after reboot the service is stopped
 systemctl enable/disable <service_name> # service running also after reboot
 
 

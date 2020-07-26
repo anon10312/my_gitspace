@@ -25,6 +25,8 @@ OpenSSH : open
 ~/.ssh/authorized_keys # public authorized keys
 ~/.ssh/id_rsa # default private key location
 
+apt install openssh-server
+
 service start ssh
 
 systemctl enable ssh
