@@ -1,9 +1,0 @@
-- DISTributedCCompilation : 3632 -
-
-- Server -
-/etc/conf.d/distccd # configuration file - permit users
-/var/log/distccd.log # default log file
-
-service start distccd
-
-

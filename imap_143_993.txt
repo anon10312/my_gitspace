@@ -1,0 +1,6 @@
+__InternetMessageAccessProtocol__
+default port: 143
+
+client can access to its mails without download/delete procedure
+
+IMAP + SSL/TSL default port: 993

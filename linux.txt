@@ -99,7 +99,14 @@ route # routing table
 __SERVICES__
 
 service <service_name> start/stop/status # after reboot the service is stopped
+service --status-all # show all services status
 systemctl enable/disable <service_name> # service running also after reboot
+
+__FIREWALL__
+
+ufw enable/disable/reload # start/stop/restart firewall
+ufw <service/protocol/default> allow/deny/reject [incoming/outgoing/routed] # manage firewall entries [default means all the undefined]
+ufw status # print firewall status and entries
 
 
 

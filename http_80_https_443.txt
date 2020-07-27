@@ -1,0 +1,23 @@
+_HyperTextTransferProtocol_
+default port: 80
+
+client/server protocol over tcp.
+message structure:
+	- Method : GET/PUT/POST/DELETE/...
+	- Header
+	- Body
+from HTTP1.1 it's possible to reuse the same connection for the entire session (before handshake for each request)
+
+not encrypted -> possible solution: HTTPS
+
+_HyperTextTransferProtocolSecure_
+
+HTTP + TSL: connection encrypted -> server must present a certified signed by a CA
+default port: 443
+
+Response Code:
+	- 1XX : Informational
+	- 2XX : OK
+	- 3XX : Redirect
+	- 4XX : Client Error
+	- 5XX : Server Error

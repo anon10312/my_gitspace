@@ -36,6 +36,7 @@ systemctl start ssh
 
 ssh-keygen # generate public/private keys
 ssh-copy-id <username>@<server_ip> # upload pub key to server
+ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 <server_ip> # if no matching key exchange method found
 ssh [<username>@]<server_ip> [-i <priv_key_to_use>] # initialize connection
 
 - BRUTEFORCE -

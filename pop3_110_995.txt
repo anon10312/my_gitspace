@@ -1,0 +1,7 @@
+_PostOfficeProtocol_
+default port: 110
+
+POP: download and delete mail from a mail server
+POP3: possibility to delete mail or not
+
+POP + TSL default port: 995

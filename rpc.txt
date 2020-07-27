@@ -1,0 +1,9 @@
+__RemoteProcedureCall__
+
+
+client->client stub->server->server stub
+
+client sends command and parameters to be executed on the server side,server answers and starts the rpc.
+the call can be blocking (client must wait for the call to end) or asynchronous
+
+several protocols

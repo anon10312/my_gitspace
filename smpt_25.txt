@@ -1,0 +1,14 @@
+_SimpleMailTransferProtocol_
+
+textual protocol used to send messages from a client to a mail server over TCP. (Today standard is extended smtp).
+default port: 25 [587 (used by some clients) and 485 (deprecated)]
+SMTPS: SMTP + TLS
+
+client specify one or more receiver -> check if receiver exist -> transmission to server
+
+command exchange:
+	- MAIL FROM:
+	- RCPT TO: [one per receiver]
+	- DATA
+
+weakness: SMPT doesn't implement authentication -> can send mail as another user -> solution : SMTP_AUTH
